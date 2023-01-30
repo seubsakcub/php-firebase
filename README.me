@@ -1,0 +1,50 @@
+php function access firebase
+
+
+#change config firebase => folder controllers/config.php
+
+define("FBURL", "URL Project Filebase");
+define("FBAUTH", "Database Secret");
+
+
+define("STORAGE_BUCKET", "tutorial-php-4.appspot.com");
+define("STORAGE_SERVICE", "service.json");
+
+================ end confdig ================
+
+#How to use
+
+#start $con = new firebase();
+
+#support function
+
+- insert
+- insertKey
+- update
+- delete
+- select
+
+#select data on firebase
+$data = $con->select('test');
+
+#update data on firebase
+$data = $con->update('test/profile',['phone'=>'111-111-111']);
+
+#delete data on firebase
+$data = $con->delete('test','profile');
+
+#insert data auto key on firebase
+$data = $con->insert('test/profile',[
+    'username'=>'John',
+    'fullname'=>'John John',
+    'phone'=>'111-111-111'
+]);
+
+#insert data fix key and replace to exists key on firebase
+$data = $con->insertKeys('test/profile',[
+    'username'=>'John',
+    'fullname'=>'John John',
+    'phone'=>'111-111-111'
+]);
+
+print_r($data);
