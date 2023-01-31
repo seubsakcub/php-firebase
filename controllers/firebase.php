@@ -12,6 +12,8 @@ else{
    require('../controllers/config.php');
 }
 class Firebase{
+   private $url = '';
+   private $auth = '';
    function __construct() {
       if(FBURL == "" || FBURL == null) {
          throw new Exception("The database url is required");
